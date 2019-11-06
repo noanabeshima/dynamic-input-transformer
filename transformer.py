@@ -79,6 +79,6 @@ class Transformer(nn.Module):
             if training:
                 x = F.dropout(x, p=self.p)
         x = torch.einsum('...bjk->...bk', x)/(L.reshape(-1,1)*x.shape[1])
-        x = F.relu(torch.matmul(x, self.extract_1))
+        x = swish(torch.matmul(x, self.extract_1))
         x = torch.matmul(x, self.extract_2)
         return x
