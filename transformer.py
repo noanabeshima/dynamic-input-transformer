@@ -1,14 +1,12 @@
 '''transformer.py'''
 
 import numpy as np
-import pickle
-import matplotlib.pyplot as plt
 
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
-from torch.nn.utils.rnn import pad_sequence
+
 
 if torch.cuda.is_available():
     device = torch.device('cuda')
